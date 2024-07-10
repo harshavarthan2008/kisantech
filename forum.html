@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Agriculture Forum</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Google Translate JavaScript -->
+  <script type="text/javascript">
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: 'en,hi,ta', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+    }
+</script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</head>
+<body>
+<!-- Google Translate Element -->
+<div id="google_translate_element"></div>
+  <style>
+    body {
+      background-color: #f0f8ff;
+      font-family: Arial, sans-serif;
+    }
+
+    header {
+      background-color: #4caf50;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    footer {
+      background-color: #4caf50;
+      color: white;
+      text-align: center;
+      padding: 10px 0;
+      margin-top: 20px;
+    }
+
+    .list-group-item.active {
+      background-color: #66bb6a;
+      border-color: #66bb6a;
+    }
+
+    .post {
+      background-color: #ffffff;
+      padding: 20px;
+      border: 1px solid #dcedc8;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+
+    .btn-primary {
+      background-color: #66bb6a;
+      border-color: #66bb6a;
+    }
+
+    .btn-primary:hover {
+      background-color: #558b2f;
+      border-color: #558b2f;
+    }
+
+    .forum-title {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 30px;
+    }
+
+    .post-title {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+    .post-content {
+      margin-bottom: 15px;
+    }
+
+    .form-control {
+      margin-bottom: 15px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Agriculture Forum</h1>
+    <p>Welcome to our community forum on agriculture!</p>
+  </header>
+
+  <div class="container">
+    <div class="row">
+      <!-- Sidebar -->
+      <nav class="col-md-3 mb-4">
+        <div class="list-group">
+          <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
+            Categories
+          </a>
+          <a href="#" class="list-group-item list-group-item-action">Crop Production</a>
+          <a href="#" class="list-group-item list-group-item-action">Livestock Farming</a>
+          <a href="#" class="list-group-item list-group-item-action">Sustainable Practices</a>
+          <a href="#" class="list-group-item list-group-item-action">Market Trends</a>
+        </div>
+      </nav>
+
+      <!-- Main Content -->
+      <main class="col-md-9">
+        <div class="forum-title mb-4">Agriculture Forum</div>
+
+        <!-- Create a Post Section -->
+        <div class="card mb-4">
+          <div class="card-body">
+            <h2 class="card-title">Create a New Post</h2>
+            <form id="postForm">
+              <div class="mb-3">
+                <label for="postTitle" class="form-label">Title</label>
+                <input type="text" class="form-control" id="postTitle" required>
+              </div>
+              <div class="mb-3">
+                <label for="postContent" class="form-label">Content</label>
+                <textarea class="form-control" id="postContent" rows="3" required></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+          </div>
+        </div>
+
+        <!-- Posts Section -->
+        <div id="posts">
+          <h2>Recent Posts</h2>
+          <!-- Sample Post 1 -->
+          <div class="post">
+            <h3 class="post-title">How to Improve Soil Health Naturally</h3>
+            <p class="post-content">One effective method to improve soil health is by using cover crops...</p>
+            <p class="text-muted">Posted by FarmerJane - 3 hours ago</p>
+          </div>
+          <!-- Sample Post 2 -->
+          <div class="post">
+            <h3 class="post-title">Advantages of Vertical Farming in Urban Areas</h3>
+            <p class="post-content">Vertical farming offers space-efficient agriculture solutions...</p>
+            <p class="text-muted">Posted by AgroTechEnthusiast - 1 day ago</p>
+          </div>
+          <!-- Sample Post 3 -->
+          <div class="post">
+            <h3 class="post-title">Impact of Climate Change on Crop Production</h3>
+            <p class="post-content">Climate change poses challenges to agriculture, affecting crop yields...</p>
+            <p class="text-muted">Posted by ClimateWarrior - 2 days ago</p>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <!-- <footer>
+    <p>&copy; 2024 Agriculture Forum</p>
+  </footer> -->
+
+  <script>
+    // Submitting a new post
+    document.getElementById('postForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      // Get post title and content
+      const title = document.getElementById('postTitle').value;
+      const content = document.getElementById('postContent').value;
+
+      // Create a new post element
+      const post = document.createElement('div');
+      post.className = 'post';
+      post.innerHTML = `
+        <h3 class="post-title">${title}</h3>
+        <p class="post-content">${content}</p>
+        <p class="text-muted">Posted just now</p>
+      `;
+
+      // Add the new post to the posts section
+      const postsContainer = document.getElementById('posts');
+      postsContainer.insertBefore(post, postsContainer.firstChild);
+
+      // Clear the form
+      document.getElementById('postForm').reset();
+    });
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js"></script>
+</body>
+</html>
